@@ -1,0 +1,173 @@
+    <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Canvas Collision | Simulación 2D</title>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="topbar">
+        <div class="brand">
+            <div class="brand-icon">C</div>
+            <div>
+                <h1>Canvas Collision</h1>
+                <p>Motor de simulación de colisiones 2D</p>
+            </div>
+        </div>
+
+        <div class="status-badge">
+            <span class="status-dot"></span>
+            <span id="estadoGeneral">Sistema activo</span>
+        </div>
+    </header>
+
+    <main class="dashboard">
+        <section class="intro">
+            <div>
+                <span class="eyebrow">LABORATORIO DE FÍSICA DIGITAL</span>
+                <h2>Simulación de esferas</h2>
+                <p>
+                    Visualiza el movimiento, la detección de colisiones
+                    y los rebotes entre objetos en un entorno 2D.
+                </p>
+            </div>
+
+            <div class="version-tag">
+                <span>VERSIÓN</span>
+                <strong id="versionLabel">3.0</strong>
+            </div>
+        </section>
+
+        <section class="control-panel">
+            <div class="panel-heading">
+                <div>
+                    <h3>Panel de control</h3>
+                    <p>Configura los parámetros de la simulación</p>
+                </div>
+                <span class="live-tag">EN VIVO</span>
+            </div>
+
+            <div class="controls">
+                <div class="control-group">
+                    <label for="version">Versión del algoritmo</label>
+                    <select id="version">
+                        <option value="1">1.0 · Movimiento básico</option>
+                        <option value="2">2.0 · Detección de colisiones</option>
+                        <option value="3" selected>3.0 · Rebotes dinámicos</option>
+                    </select>
+                </div>
+
+                <div class="control-group" id="cantidadControl">
+                    <label for="cantidadEsferas">
+                        Cantidad de esferas
+                        <span id="cantidadValor">20</span>
+                    </label>
+
+                    <input
+                        type="range"
+                        id="cantidadEsferas"
+                        min="5"
+                        max="25"
+                        value="20"
+                        step="1"
+                    />
+
+                    <div class="range-labels">
+                        <span>5 esferas</span>
+                        <span>25 esferas</span>
+                    </div>
+                </div>
+
+                <div class="control-group action-group">
+                    <label>Control de reproducción</label>
+                    <div class="button-row">
+                        <button id="botonPausa" class="btn-primary">
+                            <span id="iconoPausa">Ⅱ</span>
+                            <span id="textoPausa">Pausar</span>
+                        </button>
+
+                        <button id="reiniciar" class="btn-secondary">
+                            ↻ Reiniciar
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <p class="helper-text" id="ayudaVersion">
+                Versión 3.0: las esferas rebotan entre sí y destellan
+                en azul al comenzar una colisión.
+            </p>
+        </section>
+
+        <section class="stats-grid">
+            <article class="stat-card">
+                <div class="stat-top">
+                    <span>Esferas en pantalla</span>
+                    <span class="stat-icon cyan">◉</span>
+                </div>
+                <strong id="totalEsferas">20</strong>
+                <span class="stat-caption">Objetos simulados</span>
+            </article>
+
+            <article class="stat-card">
+                <div class="stat-top">
+                    <span>Parejas en colisión</span>
+                    <span class="stat-icon violet">⤨</span>
+                </div>
+                <strong id="totalColisiones">0</strong>
+                <span class="stat-caption">Contactos actuales</span>
+            </article>
+
+            <article class="stat-card">
+                <div class="stat-top">
+                    <span>Velocidad inicial</span>
+                    <span class="stat-icon green">↗</span>
+                </div>
+                <strong id="rangoVelocidad">1–5</strong>
+                <span class="stat-caption">Unidades por fotograma</span>
+            </article>
+        </section>
+
+        <section class="simulation-panel">
+            <div class="simulation-heading">
+                <div>
+                    <h3>Área de simulación</h3>
+                    <p>Entorno de renderizado Canvas 2D</p>
+                </div>
+
+                <div class="legend">
+                    <span><i class="legend-dot normal"></i>Movimiento</span>
+                    <span><i class="legend-dot collision"></i>Colisión</span>
+                </div>
+            </div>
+
+            <div class="canvas-container">
+                <canvas id="canvas">
+                    Tu navegador no soporta Canvas.
+                </canvas>
+
+                <div id="mensajePausa" class="pause-overlay" hidden>
+                    <div class="pause-symbol">Ⅱ</div>
+                    <strong>Simulación pausada</strong>
+                    <span>Reanuda para continuar el movimiento</span>
+                </div>
+            </div>
+
+            <div class="simulation-footer">
+                <span><i class="status-dot"></i> Motor gráfico Canvas</span>
+                <span id="estado">Inicializando...</span>
+            </div>
+        </section>
+
+        <footer>
+            <span>CANVAS COLLISION</span>
+            <span>Programación orientada a objetos · JavaScript</span>
+        </footer>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
