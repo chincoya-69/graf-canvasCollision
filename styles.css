@@ -2,14 +2,12 @@
 :root {
     --bg: #080d18;
     --panel: #111a2b;
-    --panel-hover: #162238;
     --border: #25334a;
     --text: #edf4ff;
     --muted: #8b9bb4;
     --cyan: #36d9f5;
     --violet: #a78bfa;
     --green: #4ade80;
-    --blue: #0000ff;
 }
 
 * {
@@ -26,9 +24,7 @@ body {
     font-family: Inter, "Segoe UI", Arial, sans-serif;
 }
 
-button,
-select,
-input {
+button, select, input {
     font: inherit;
 }
 
@@ -40,7 +36,7 @@ input {
     justify-content: space-between;
     gap: 20px;
     border-bottom: 1px solid var(--border);
-    background: #0b1220eF;
+    background: #0b1220;
 }
 
 .brand {
@@ -65,31 +61,23 @@ input {
 .brand h1 {
     margin: 0;
     font-size: 19px;
-    letter-spacing: -0.4px;
-}
-
-.brand p,
-.intro p,
-.panel-heading p,
-.simulation-heading p {
-    color: var(--muted);
 }
 
 .brand p {
     margin: 4px 0 0;
+    color: var(--muted);
     font-size: 12px;
 }
 
-.status-badge,
-.live-tag {
+.status-badge, .live-tag {
     display: inline-flex;
     align-items: center;
     gap: 9px;
+    padding: 8px 12px;
     border: 1px solid #285b4c;
     border-radius: 999px;
     background: #102820;
     color: #8af0b2;
-    padding: 8px 12px;
     font-size: 12px;
 }
 
@@ -104,7 +92,7 @@ input {
 
 .dashboard {
     width: min(1440px, 94%);
-    margin: 0 auto;
+    margin: auto;
     padding: 36px 0 20px;
 }
 
@@ -132,6 +120,7 @@ input {
 .intro p {
     max-width: 650px;
     margin: 0;
+    color: var(--muted);
     font-size: 14px;
     line-height: 1.7;
 }
@@ -158,8 +147,7 @@ input {
     font-size: 25px;
 }
 
-.control-panel,
-.simulation-panel {
+.control-panel, .simulation-panel {
     border: 1px solid var(--border);
     border-radius: 16px;
     background: linear-gradient(145deg, #121d30, #0e1726);
@@ -171,23 +159,21 @@ input {
     margin-bottom: 20px;
 }
 
-.panel-heading,
-.simulation-heading {
+.panel-heading, .simulation-heading {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 16px;
 }
 
-.panel-heading h3,
-.simulation-heading h3 {
+.panel-heading h3, .simulation-heading h3 {
     margin: 0;
     font-size: 16px;
 }
 
-.panel-heading p,
-.simulation-heading p {
+.panel-heading p, .simulation-heading p {
     margin: 6px 0 0;
+    color: var(--muted);
     font-size: 12px;
 }
 
@@ -238,7 +224,6 @@ select:focus {
 
 #cantidadValor {
     color: var(--cyan);
-    font-size: 15px;
     font-weight: 800;
 }
 
@@ -270,10 +255,7 @@ button {
     cursor: pointer;
     font-size: 12px;
     font-weight: 700;
-    transition:
-        transform 0.15s ease,
-        background 0.15s ease,
-        border-color 0.15s ease;
+    transition: transform .15s ease, background .15s ease;
 }
 
 button:hover {
@@ -409,7 +391,7 @@ button:focus-visible {
 }
 
 .legend-dot.collision {
-    background: var(--blue);
+    background: #0000ff;
     box-shadow: 0 0 9px #4545ff;
 }
 
@@ -425,7 +407,10 @@ canvas {
     display: block;
     width: 100%;
     height: clamp(380px, 57vh, 680px);
-    background: transparent;
+    background:
+        radial-gradient(ellipse at 50% 0%, #172e4b 0%, transparent 70%),
+        #080f1d;
+    cursor: crosshair;
 }
 
 .pause-overlay {
@@ -491,7 +476,7 @@ footer {
     border-top: 1px solid var(--border);
     color: var(--muted);
     font-size: 10px;
-    letter-spacing: 0.7px;
+    letter-spacing: .7px;
 }
 
 footer span:first-child {
@@ -542,8 +527,7 @@ footer span:first-child {
         padding: 12px;
     }
 
-    .controls,
-    .stats-grid {
+    .controls, .stats-grid {
         grid-template-columns: 1fr;
     }
 
@@ -551,8 +535,7 @@ footer span:first-child {
         grid-column: auto;
     }
 
-    .control-panel,
-    .simulation-panel {
+    .control-panel, .simulation-panel {
         padding: 16px;
     }
 
